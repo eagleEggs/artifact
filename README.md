@@ -9,6 +9,7 @@ A personal experiment.
 - Backend correllations are performed automatically - Giving insight into cause and effect across small details of your life
 
 The point of the functionality is to visualize the effects of the small things you do, that you never see.
+<br><br>
 
-
+![anim1](https://github.com/eagleEggs/relyx/blob/master/screenShots/relyx_designDraft.png?)<br>
 
