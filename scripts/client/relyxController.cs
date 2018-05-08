@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class relyxController : MonoBehaviour
 {
-
-
+    
     private string connString;
     private MySql.Data.MySqlClient.MySqlConnection db2;
     public InputField tableNameField;
@@ -17,16 +16,19 @@ public class relyxController : MonoBehaviour
     private String columnNameFieldString;
     private String valueFieldString;
 
-    [SerializeField] Text connectionText;
+    [SerializeField] private Text connectionText;
+    [SerializeField] private InputField tableText;
+    [SerializeField] private InputField columnText;
+    [SerializeField] private InputField valueText;
 
     [SerializeField] private Material connectionStatus;
     [SerializeField] private String serverName;
     [SerializeField] private String DBUserID;
     [SerializeField] private String DBPassword;
     [SerializeField] private String DBName;
-
     [SerializeField] private Button commit;
     [SerializeField] private Button connect;
+    [SerializeField] private Button clear;
 
 
     // Use this for initialization
@@ -42,6 +44,11 @@ public class relyxController : MonoBehaviour
         // connect:
         Button connectButton = connect.GetComponent<Button>();
         connectButton.onClick.AddListener(Connect);
+
+        // clear:
+        Button clearButton = clear.GetComponent<Button>();
+        clearButton.onClick.AddListener(Clear);
+
 
         // init getComponents:
 
@@ -90,6 +97,28 @@ public class relyxController : MonoBehaviour
         //execute commands:
         MySql.Data.MySqlClient.MySqlCommand command = db2.CreateCommand();
 
+
+        // check for table and column first, add if not exist
+        try
+        {
+            // check/add table
+            command.CommandText = "CREATE TABLE IF NOT EXISTS " +tableNameFieldString + " (`ID` int(11) NOT NULL AUTO_INCREMENT,`date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,PRIMARY KEY(`ID`,`date`)) ENGINE = InnoDB AUTO_INCREMENT = 32 DEFAULT CHARSET = latin1";
+            command.ExecuteNonQuery();
+
+            // check/add column
+            command.CommandText = "ALTER TABLE "+tableNameFieldString+" ADD COLUMN IF NOT EXISTS " + columnNameFieldString + " int(11)"; // column check/add
+            command.ExecuteNonQuery();
+
+        }
+
+        catch
+        {
+
+            connectionText.text = "Create Issue :3";
+       
+        }
+
+        // after checking for add, commit:
         try
         {
             command.CommandText = "insert into " + tableNameFieldString + "(" + columnNameFieldString + ") values(" + valueFieldString + ")";
@@ -102,9 +131,17 @@ public class relyxController : MonoBehaviour
 
             connectionText.text = "Check Input :/";         
 
-
                  }
 
+
+
+    }
+
+    void Clear(){
+
+        tableText.text = "";
+        columnText.text = "";
+        valueText.text = "";
 
 
     }
