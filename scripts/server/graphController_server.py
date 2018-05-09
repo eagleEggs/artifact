@@ -44,7 +44,7 @@ layout = Layout(
 
 data = Data([tasks, tasks2, tasks3])
 fig = Figure(data=data, layout=layout)
-offline.iplot(fig, filename='graph', image='png')
+offline.plot(fig, filename='graph', image='png')
 
 
 #py.image.save_as(fig, filename='/var/www/html/graph.png')
