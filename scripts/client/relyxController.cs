@@ -2,6 +2,7 @@
 using MySql;
 using System;
 using UnityEngine.UI;
+using System.Collections;
 
 
 public class relyxController : MonoBehaviour
@@ -29,6 +30,10 @@ public class relyxController : MonoBehaviour
     [SerializeField] private Button commit;
     [SerializeField] private Button connect;
     [SerializeField] private Button clear;
+    [SerializeField] private Button graph;
+    [SerializeField] private Material graphTex;
+
+    [SerializeField] private string graphURL = "http://localhost/graph.png";
 
 
     // Use this for initialization
@@ -49,10 +54,14 @@ public class relyxController : MonoBehaviour
         Button clearButton = clear.GetComponent<Button>();
         clearButton.onClick.AddListener(Clear);
 
+        // graph:
+        Button graphButton = graph.GetComponent<Button>();
+        graphButton.onClick.AddListener(Graph);
+
 
         // init getComponents:
 
-        connectionStatus.SetColor("_Color", Color.red);
+        connectionStatus.SetColor("_Color", Color.red); // connection color status
         connectionText.text = "Not Connected :(";
 
 
@@ -133,6 +142,28 @@ public class relyxController : MonoBehaviour
 
                  }
 
+
+
+    }
+
+    void Graph(){
+
+
+        StartCoroutine(graphLoad());
+
+
+    }
+
+
+    private IEnumerator graphLoad(){
+        Texture2D graphTexture;
+        graphTexture = new Texture2D(4, 4, TextureFormat.DXT1, false);
+        using (WWW www = new WWW(graphURL))
+        {
+            yield return www;
+            www.LoadImageIntoTexture(graphTexture);
+            graphTex.mainTexture = graphTexture;
+        }
 
 
     }
