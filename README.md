@@ -13,3 +13,17 @@ The point of the functionality is to visualize the effects of the small things y
 
 ![anim1](https://github.com/eagleEggs/relyx/blob/master/screenShots/relyxGif1.gif?)<br>
 
+
+
+### Setup and Requirements
+
+ - Apache / PHP / mySQL
+ - Python - All libraries available through pip install (matplotlib, jupyter, pandas, MySQLDb, pylab)
+ - Unity3d (If you want to modify the local app c# and visuals of the application)
+ 
+ ### Help
+ 
+  - Feel free to contribute: making additions to functionality, security, client/server, etc...
+  - Post issues on this repository for assistance on setup or other issues/questions
+ 
+ 
