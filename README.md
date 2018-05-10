@@ -9,7 +9,7 @@ A personal experiment.
 - Backend correllations are performed automatically - Giving insight into cause and effect across small details of your life
 
 The point of the functionality is to visualize the effects of the small things you do, that you never see.<br>
-Additional usage is for querying any type of dataset with simple input, and receiving graphs in return.
+Additional usage is for inputting and querying any type of dataset with simple input, and receiving graphs in return.<br>
 <br><br>
 
 ![anim1](https://github.com/eagleEggs/relyx/blob/master/screenShots/relyxGif1.gif?)<br>
