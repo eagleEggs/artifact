@@ -12,7 +12,7 @@ The point of the functionality is to visualize the effects of the small things y
 Additional usage is for inputting and querying any type of dataset with simple input, and receiving graphs in return.<br>
 <br><br>
 
-![anim1](https://github.com/eagleEggs/relyx/blob/master/screenShots/relyxGif1.gif?)<br>
+![anim1](https://github.com/eagleEggs/relyx/blob/master/screenShots/relyx_gif1.gif?)<br>
 
 
 
