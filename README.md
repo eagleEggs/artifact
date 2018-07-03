@@ -14,7 +14,11 @@ Additional usage is for inputting and querying any type of dataset with simple i
 
 ![anim1](https://github.com/eagleEggs/artifact/blob/master/screenShots/relyx_gif1.gif?)<br>
 
+### Machine Learning (ML)
 
+ - Functionality/Interface to trigger dataset to generate ML model after having enough data.
+ - Functionality/interface to push proposed actions to generate realtime predictions.
+ - Requirements: Apache/PHP/mySQL/Tensorflow/Python3/Jupyter/Numpy/Matplotlib
 
 ### Setup and Requirements
 
